@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Comment Box</title>
+    <link rel="stylesheet" href="./css/like.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script src="./build/JSXTransformer-0.12.2.js"></script>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <script type="text/babel">
+      class LikeButton extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            liked: false
+          };
+          this.handleClick = this.handleClick.bind(this);
+        }
+        handleClick() {
+            this.setState({
+              liked: !this.state.liked
+            });
+        }
+        render() {
+          const text = this.state.liked ? 'liked' : 'have not liked';
+          return (
+            <div onClick={this.handleClick}>
+              You {text}  this. Click to toggle.
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
