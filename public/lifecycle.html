@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Life Cycle</title>
+    <link rel="stylesheet" href="./examples/shared/css/base.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script src="./build/JSXTransformer-0.12.2.js"></script>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <script type="text/babel">
+      var PhotoImg = React.createClass({
+        propTypes: {
+           propOne: React.PropTypes.string,
+           propTwo: React.PropTypes.string
+        },
+        getInitialState: function() {
+          console.log("getInitialState");
+          return {
+           name: "default name"
+          };
+        },
+        getDefaultProps: function() {
+          console.log("getDefaultProps");
+          return {
+           propOne: "default prop one",
+           propTwo: "default prop two",
+           propThree: "default prop three"
+          };
+        },
+        componentWillMount: function() {
+            console.log("componentWillMount");
+        },
+        componentDidMount: function() {
+          console.log("componentDidMount");
+        },
+        componentWillReceiveProps: function() {
+          console.log("componentWillReceiveProps");
+          this.setState({
+               state2: "receive state2"
+          })
+        },
+        shouldComponentUpdate: function(nextProps, nextState) {
+          console.log("shouldComponentUpdate");
+          return nextProps.name !== this.props.name;
+        },
+        componentWillUpdate: function(nextProps, nextState) {
+          console.log("componentWillUpdate");
+        },
+        componentDidUpdate: function(nextProps, nextState) {
+          console.log("componentDidUpdate");
+        },
+        componentWillUnmount: function(){
+          console.log("componentWillUnmount");
+        },
+        handleClick: function() {
+          this.setState({
+            name: 'child name'
+          });
+        },
+        render: function() {
+          return (
+            <div onClick={this.handleClick}>
+               <h1>
+                 Hello {this.state.name}
+               </h1>
+            </div>
+          );
+
+        }
+      });
+      var PhotoBox = React.createClass({
+          render: function() {
+              return (
+                <div>
+                  <PhotoImg propFour='parent prop four' propTwo='parent prop two' />
+                  <div> 17 th September 2016</div>
+                </div>
+            );
+          }
+      });
+      ReactDOM.render(
+        <PhotoBox />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
