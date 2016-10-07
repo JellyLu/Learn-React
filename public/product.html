@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Product List</title>
-    <link rel="stylesheet" href="./examples/shared/css/base.css" />
+    <link rel="stylesheet" href="./css/product.css" />
   </head>
   <body>
     <div id="content"></div>
@@ -65,9 +65,9 @@
         render: function() {
           return (
             <form>
-              <input type="text" placeholder="Serach ..." />
+              <input id="searchBar" type="text" placeholder="Serach ..." />
               <p>
-                <input type="checkbox" />
+                <input id="checkbox" type="checkbox" />
                 {' '}
                 Only show products in stock
               </p>
