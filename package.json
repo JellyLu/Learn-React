@@ -12,6 +12,7 @@
     "express": "^4.4.5",
     "gulp": "*",
    "browserify": "*",
+   "watchify": "^3.2.1",
    "reactify": "*",
    "vinyl-source-stream": "*",
    "jshint": "*",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "watch": "watchify ./public/index.js -o ./public/dist/deps.min.js -v",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
