@@ -16,7 +16,7 @@ var PairList = React.createClass({
     var pairNodes = this.props.pairs.map(function(pair) {
       console.log("pair:" + pair);
       return (
-          <Pair pair={pair} />
+          <Pair key={pair.id} pair={pair} />
       );
     });
     var isHidden = (this.props.pairs.length === 0)

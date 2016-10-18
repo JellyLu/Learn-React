@@ -1,13 +1,13 @@
 var data = {
   coders: [
-    {id: 0, name: "Jiefeng Liu", isSelected: false},
-    {id: 1, name: "Zhen Tang", isSelected: false},
-    {id: 2, name: "Wen Li", isSelected: false},
-    {id: 3, name: "BearClaw", isSelected: false},
-    {id: 4, name: "Evan Li", isSelected: false},
-    {id: 5, name: "Yu Li", isSelected: false},
-    {id: 6, name: "Chenbo Xu", isSelected: false},
-    {id: 7, name: "Yangjie Lu", isSelected: false}
+    {id: 0, name: "Jiefeng Liu", isSelected: true},
+    {id: 1, name: "Zhen Tang", isSelected: true},
+    {id: 2, name: "Wen Li", isSelected: true},
+    {id: 3, name: "BearClaw", isSelected: true},
+    {id: 4, name: "Evan Li", isSelected: true},
+    {id: 5, name: "Yu Li", isSelected: true},
+    {id: 6, name: "Chenbo Xu", isSelected: true},
+    {id: 7, name: "Yangjie Lu", isSelected: true}
   ]
 };
 

@@ -12,12 +12,12 @@ var Pair = React.createClass({
   },
   render: function() {
     console.log("pair render");
-    console.log("from super pair:" + this.props.pair);
-    let pair = this.props.pair; 
+    console.log("from props pair:" + this.props.pair.id);
+    let pair = this.props.pair;
     let coderOneName = pair.coderOne.name;
-    let coderTwoName = pair.coderTwo.name !== undefined ? "&" + pair.coderTwo.name : "";
+    let coderTwoName = pair.coderTwo === undefined ? "" : (" & " + pair.coderTwo.name);
     return (
-      <div> {coderOneName} {coderTwoName} </div>
+      <div> {coderOneName}{coderTwoName} </div>
     );
   }
 });
