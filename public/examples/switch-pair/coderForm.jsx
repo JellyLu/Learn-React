@@ -20,7 +20,7 @@ var CoderForm = React.createClass({
         return (
             <form id="CoderForm" onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="New coder's name" value={this.state.name} onChange={this.handleNameChange}/>
-                <input type="submit" value="Add"/>
+                <input className="inputButton" type="submit" value="Add"/>
             </form>
         );
     }

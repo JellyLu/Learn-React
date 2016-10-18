@@ -71,12 +71,21 @@ ul {
 }
 
 .coder .coderName {
-  width: 50%;
+  width: 20%;
   margin-left: 10px;
 }
 
 input {
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+.inputButton {
+  width: 200px;
+  height: 100px;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 1.5em;
 }
 
 button {
