@@ -27,7 +27,7 @@ var SwitchPairs = React.createClass({
             id: Date.now
         };
         var newCoders = this.state.coders.concat([coder]);
-        this.setState({coders: newCoders}); 
+        this.setState({coders: newCoders});
     },
     handleCoderClicked: function(e) {
         e.preventDefault();
@@ -56,7 +56,6 @@ var SwitchPairs = React.createClass({
                 <div>
                     <button onClick={this.switchPair}>Switch</button>
                 </div>
-                <PairList pairs={this.state.pairs}/>
             </div>
         );
     }

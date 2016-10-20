@@ -1,8 +1,6 @@
-var ReactDOM = require('react-dom');
-var SwitchPairs = require('./examples/switch-pair/switchPairs.jsx');
-var coder = {name: "Yangjie", isSelected: true, id: "293"}
+const ReactDOM = require('react-dom');
+const React = require('react');
+const {Router} = require("react-router");
+const routes = require("./examples/switch-pair/config.jsx");
 
-ReactDOM.render(
-   <SwitchPairs  />,
-  document.getElementById('content')
-);
+ReactDOM.render( <Router routes={routes} />, document.body);
