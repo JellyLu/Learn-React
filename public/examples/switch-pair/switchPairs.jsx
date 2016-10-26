@@ -4,11 +4,14 @@ var CoderForm = require('./coderForm.jsx');
 var PairList = require('./pairList.jsx');
 var data = require('./pairs.js');
 var {switchPairs} = require('./switchPairHelper.jsx');
+var Router = require('react-router');
+var Navigation = Router.Navigation;
 
 var SwitchPairs = React.createClass({
+    mixins: [Navigation],
     getInitialState: function() {
         console.log("state-init");
-        return {coders: [], pairs: []};
+        return {coders: []};
     },
     componentDidMount: function() {
         console.log("did mount");
@@ -16,9 +19,8 @@ var SwitchPairs = React.createClass({
     },
     switchPair: function() {
         console.log("switchPair");
-        this.setState({
-            pairs: switchPairs(this.state.coders)
-        });
+        var pairs = switchPairs(this.state.coders);
+        this.transitionTo('pairList', {pairs: pairs});
     },
     handleCoderSubmit: function(name) {
         var coder = {
@@ -45,7 +47,7 @@ var SwitchPairs = React.createClass({
         this.forceUpdate();
     },
     render: function() {
-        console.log("switchPairs: render");
+      console.log("switchPairs: render");
         return (
             <div>
                 <h1>
