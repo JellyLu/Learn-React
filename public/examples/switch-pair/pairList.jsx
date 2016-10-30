@@ -26,10 +26,12 @@ var PairList = React.createClass({
     });
     var isHidden = (this.state.pairs.length === 0)
     return (
-      <h1> New Pairs </h1>
-      <div hidden={isHidden}>
-        <div>{pairNodes}</div>
-      </div>
+      <div>
+        <h1> New Pairs </h1>
+        <div hidden={isHidden}>
+          <div>{pairNodes}</div>
+        </div>
+     </div>
     );
   }
 });
