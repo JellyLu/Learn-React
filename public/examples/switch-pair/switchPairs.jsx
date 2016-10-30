@@ -6,6 +6,7 @@ var data = require('./pairs.js');
 var {switchPairs} = require('./switchPairHelper.jsx');
 var Router = require('react-router');
 var Navigation = Router.Navigation;
+const SwitchPairsActions = require('./actions/switchPairsActions.jsx');
 
 var SwitchPairs = React.createClass({
     mixins: [Navigation],
@@ -18,9 +19,8 @@ var SwitchPairs = React.createClass({
         this.setState({coders: data.coders});
     },
     switchPair: function() {
-        console.log("switchPair");
-        var pairs = switchPairs(this.state.coders);
-        this.transitionTo('pairList', {pairs: pairs});
+        SwitchPairsActions.switchPair(this.state.coders);
+        this.transitionTo('pairList');
     },
     handleCoderSubmit: function(name) {
         var coder = {

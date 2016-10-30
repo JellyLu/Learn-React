@@ -6,10 +6,9 @@ var CoderList = React.createClass({
     this.props.handleCoderClicked(e);
   },
   render: function() {
-      console.log("render");
+      console.log("coder List render");
       const {handleCoderClicked} = this.props;
       var coderNodes = this.props.coders.map(function(coder) {
-      console.log(coder);
       return (
           <Coder key={coder.id} coder={coder} handleCoderClicked={handleCoderClicked}/>
       );

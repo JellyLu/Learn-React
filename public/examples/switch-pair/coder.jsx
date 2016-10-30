@@ -7,7 +7,6 @@ var Coder = React.createClass({
   render: function() {
     console.log("coder: render");
     const {coder, handleCoderClicked} = this.props;
-    console.log("coder:" + coder.name + " - " +  coder.isSelected);
     return (
       <div className="coder">
           <input className="coderCheckbox" onChange={handleCoderClicked} checked={coder.isSelected} type="checkbox" name={coder.name} value={coder.name}/>

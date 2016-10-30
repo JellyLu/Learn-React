@@ -1,7 +1,11 @@
-var React = require('react');
-var Pair = require('./pair.jsx')
+const React = require('react');
+const Reflux = require('reflux');
+const Pair = require('./pair.jsx');
+const PairListStore = require('./stores/pairListStore.jsx');
+
 
 var PairList = React.createClass({
+  mixins:[Reflux.connect(PairListStore)],
   componentWillMount: function() {
     console.log("will mount");
   },
@@ -13,16 +17,17 @@ var PairList = React.createClass({
   },
   render: function() {
     console.log("pair list render");
-    var pairNodes = this.props.pairs.map(function(pair) {
+    const pairs = this.state.pairs.length !== undefined ? this.state.pairs : [];
+    var pairNodes = pairs.map(function(pair) {
       console.log("pair:" + pair);
       return (
           <Pair key={pair.id} pair={pair} />
       );
     });
-    var isHidden = (this.props.pairs.length === 0)
+    var isHidden = (this.state.pairs.length === 0)
     return (
+      <h1> New Pairs </h1>
       <div hidden={isHidden}>
-        <h1> New Pairs </h1>
         <div>{pairNodes}</div>
       </div>
     );
