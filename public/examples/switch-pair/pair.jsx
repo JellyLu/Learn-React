@@ -12,7 +12,6 @@ var Pair = React.createClass({
   },
   render: function() {
     console.log("pair render");
-    console.log("from props pair:" + this.props.pair.id);
     let pair = this.props.pair;
     let coderOneName = pair.coderOne.name;
     let coderTwoName = pair.coderTwo === undefined ? "" : (" & " + pair.coderTwo.name);

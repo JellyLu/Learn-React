@@ -1,4 +1,5 @@
 var React = require('react');
+var {Navigation, State} = require("react-router");
 var CoderList = require('./coderList.jsx');
 var CoderForm = require('./coderForm.jsx');
 var PairList = require('./pairList.jsx');
@@ -47,7 +48,6 @@ var SwitchPairs = React.createClass({
         this.forceUpdate();
     },
     render: function() {
-      console.log("switchPairs: render");
         return (
             <div>
                 <h1>

@@ -7,11 +7,7 @@ var App = React.createClass({
   render() {
     return (
       <div>
-        <h1>App</h1>
-        <ul>
-          <li><Link to="/switchPairs">SwitchPairs</Link></li>
-          <li><Link to="/pairList">PairList</Link></li>
-        </ul>
+        <h1>App</h1> 
         {this.props.children}
       </div>
     );
