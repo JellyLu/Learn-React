@@ -11,7 +11,7 @@ var PairListStore = Reflux.createStore({
     return this.state;
   },
   initState () {
-    return {pairs: []}
+    return {pairs: []};
   },
   onSwitchPair: function(newPairs) {
     this.state.pairs = newPairs;

@@ -1,7 +1,10 @@
-var React = require('react');
-var Coder = require('./coder.jsx');
+const React = require('react');
+const Reflux = require('reflux');
+const Coder = require('./coder.jsx');
+const CoderListStore = require('./stores/coderListStore.jsx');
 
 var CoderList = React.createClass({
+  mixins:[Reflux.connect(CoderListStore)],
   handleCoderClicked: function(e) {
     this.props.handleCoderClicked(e);
   },

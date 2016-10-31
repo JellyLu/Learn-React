@@ -1,23 +1,21 @@
-var React = require('react');
-var {Navigation, State} = require("react-router");
-var CoderList = require('./coderList.jsx');
-var CoderForm = require('./coderForm.jsx');
-var PairList = require('./pairList.jsx');
-var data = require('./pairs.js');
-var {switchPairs} = require('./switchPairHelper.jsx');
+const React = require('react');
+const Reflux = require('reflux');
 var Router = require('react-router');
-var Navigation = Router.Navigation;
+const {Navigation, State} = require("react-router");
+const CoderList = require('./coderList.jsx');
+const CoderForm = require('./coderForm.jsx');
+// var Navigation = Router.Navigation;
 const SwitchPairsActions = require('./actions/switchPairsActions.jsx');
+const CoderListActions = require('./actions/coderListActions.jsx');
+const SwitchPairsStore = require('./stores/switchPairsStore.jsx');
 
 var SwitchPairs = React.createClass({
-    mixins: [Navigation],
-    getInitialState: function() {
-        console.log("state-init");
-        return {coders: []};
-    },
+    mixins: [
+      Navigation,
+      Reflux.connect(SwitchPairsStore)
+    ],
     componentDidMount: function() {
-        console.log("did mount");
-        this.setState({coders: data.coders});
+        // this.setState({coders: data.coders});
     },
     switchPair: function() {
         SwitchPairsActions.switchPair(this.state.coders);
@@ -33,19 +31,10 @@ var SwitchPairs = React.createClass({
         this.setState({coders: newCoders});
     },
     handleCoderClicked: function(e) {
-        e.preventDefault();
-        var checkbox = e.target;
-        let name = checkbox.name;
-        this.setState({
-            coders: this.state.coders.map(function(coder) {
-                if (coder.name === name) {
-                    coder.isSelected = checkbox.checked;
-                }
-                return coder;
-            })
-        });
-
-        this.forceUpdate();
+      e.preventDefault();
+      var checkbox = e.target;
+      CoderListActions.clickedCoder(checkbox, this.state.coders);
+        // this.forceUpdate();
     },
     render: function() {
         return (
