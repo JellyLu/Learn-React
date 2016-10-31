@@ -4,15 +4,17 @@ const SwitchPairsActions = require('../actions/switchPairsActions.jsx');
 
 var PairListStore = Reflux.createStore({
   init: function() {
+    this.state = this.initState();
     this.listenTo(SwitchPairsActions.switchPair.completed, 'onSwitchPair');
   },
   getInitialState: function() {
-    return {pairs: []};
+    return this.state;
+  },
+  initState () {
+    return {pairs: []}
   },
   onSwitchPair: function(newPairs) {
-    console.log("pairListStore: " + newPairs);
-    this.setState({pairs: newPairs});
-    console.log("pairListStore: " + this.state.pairs);
+    this.state.pairs = newPairs;
     this.trigger(this.state.pairs);
   }
 });

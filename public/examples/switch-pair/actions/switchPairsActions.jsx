@@ -8,9 +8,9 @@ var SwitchPairsActions = Reflux.createActions({
 SwitchPairsActions.switchPair.listen(function(coders) {
   var newPairs = switchPairs(coders);
   if (newPairs.length === 0) {
-     this.failed;
+     this.failed();
   } else {
-     this.completed;
+     this.completed(newPairs);
   }
 });
 
