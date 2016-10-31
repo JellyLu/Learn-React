@@ -5,7 +5,7 @@ const CoderListStore = require('./coderListStore.jsx');
 var SwitchPairsStore = Reflux.createStore({
     init() {
         this.state = this.initState();
-        Reflux.connect(CoderListStore, 'coders');
+        Reflux.listenTo(CoderListStore, this.updateCoders);
     },
     initState: function() {
         return {coders: []};

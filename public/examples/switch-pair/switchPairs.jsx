@@ -4,7 +4,6 @@ var Router = require('react-router');
 const {Navigation, State} = require("react-router");
 const CoderList = require('./coderList.jsx');
 const CoderForm = require('./coderForm.jsx');
-// var Navigation = Router.Navigation;
 const SwitchPairsActions = require('./actions/switchPairsActions.jsx');
 const CoderListActions = require('./actions/coderListActions.jsx');
 const SwitchPairsStore = require('./stores/switchPairsStore.jsx');
@@ -34,7 +33,7 @@ var SwitchPairs = React.createClass({
       e.preventDefault();
       var checkbox = e.target;
       CoderListActions.clickedCoder(checkbox, this.state.coders);
-        // this.forceUpdate();
+      this.forceUpdate();
     },
     render: function() {
         return (

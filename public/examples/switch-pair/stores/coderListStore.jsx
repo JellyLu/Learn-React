@@ -6,8 +6,8 @@ const data = require('../data.js');
 var CoderListStore = Reflux.createStore({
     init(){
       this.state = this.initState();
+      this.trigger(this.state.coders);
       this.listenTo(CoderListActions.clickedCoder, 'onClickedCoder');
-      this.trigger(this.state.data);
     },
     initState: function() {
       return {coders: data.coders};
