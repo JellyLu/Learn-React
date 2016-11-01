@@ -7,7 +7,6 @@ var CoderForm = React.createClass({
         this.setState({name: e.target.value});
     },
     handleSubmit: function(e) {
-        console.log("handleSubmit");
         e.preventDefault();
         var name = this.state.name.trim();
         if (!name) {

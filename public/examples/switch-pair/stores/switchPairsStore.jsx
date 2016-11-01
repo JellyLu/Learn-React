@@ -6,8 +6,7 @@ const data = require('../data.js');
 var SwitchPairsStore = Reflux.createStore({
     init() {
         this.state = this.initState();
-        this.listenTo(SwitchPairsActions.clickedCoder, 'onClickedCoder');
-        this.listenTo(SwitchPairsActions.clickedAddCoder, 'onClickedAddCoder');
+        this.listenToMany(SwitchPairsActions);
     },
     initState: function() {
         return {coders: data.coders};

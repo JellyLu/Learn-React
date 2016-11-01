@@ -5,7 +5,6 @@ var Coder = React.createClass({
     this.props.handleCoderClicked(e);
   },
   render: function() {
-    console.log("coder: render");
     const {coder, handleCoderClicked} = this.props;
     return (
       <div className="coder">

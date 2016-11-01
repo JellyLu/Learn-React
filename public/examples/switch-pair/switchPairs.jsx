@@ -17,7 +17,7 @@ var SwitchPairs = React.createClass({
         this.transitionTo('pairList');
     },
     handleCoderSubmit: function(name) {
-        SwitchPairsActions.clickedAddCoder(name);        
+        SwitchPairsActions.clickedAddCoder(name);
     },
     handleCoderClicked: function(e) {
       e.preventDefault();
@@ -25,7 +25,6 @@ var SwitchPairs = React.createClass({
       SwitchPairsActions.clickedCoder(checkbox, this.state.coders);
     },
     render: function() {
-        console.log("switchPairs render");
         return (
             <div>
                 <h1>
