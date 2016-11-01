@@ -1,21 +1,22 @@
 const Reflux = require('reflux');
 const React = require('react');
-const CoderListStore = require('./coderListStore.jsx');
+const SwitchPairsActions = require('../actions/switchPairsActions.jsx');
+const data = require('../data.js');
 
 var SwitchPairsStore = Reflux.createStore({
     init() {
         this.state = this.initState();
-        Reflux.listenTo(CoderListStore, this.updateCoders);
+        this.listenTo(SwitchPairsActions.clickedCoder.completed, 'onClickedCoder');
     },
     initState: function() {
-        return {coders: []};
+        return {coders: data.coders};
     },
     getInitialState: function() {
         return this.state;
     },
-    updateCoders: function(newCoders) {
-        this.state.coders = newCoders;
-        this.trigger(this.state.coders);
+    onClickedCoder: function(newCoders) {
+      this.state.coders = newCoders;
+      this.trigger(this.state.coders);
     }
 });
 

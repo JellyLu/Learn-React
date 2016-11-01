@@ -5,7 +5,6 @@ const {Navigation, State} = require("react-router");
 const CoderList = require('./coderList.jsx');
 const CoderForm = require('./coderForm.jsx');
 const SwitchPairsActions = require('./actions/switchPairsActions.jsx');
-const CoderListActions = require('./actions/coderListActions.jsx');
 const SwitchPairsStore = require('./stores/switchPairsStore.jsx');
 
 var SwitchPairs = React.createClass({
@@ -13,9 +12,6 @@ var SwitchPairs = React.createClass({
       Navigation,
       Reflux.connect(SwitchPairsStore)
     ],
-    componentDidMount: function() {
-        // this.setState({coders: data.coders});
-    },
     switchPair: function() {
         SwitchPairsActions.switchPair(this.state.coders);
         this.transitionTo('pairList');
@@ -32,10 +28,10 @@ var SwitchPairs = React.createClass({
     handleCoderClicked: function(e) {
       e.preventDefault();
       var checkbox = e.target;
-      CoderListActions.clickedCoder(checkbox, this.state.coders);
-      this.forceUpdate();
+      SwitchPairsActions.clickedCoder(checkbox, this.state.coders);
     },
     render: function() {
+        console.log("switchPairs render");
         return (
             <div>
                 <h1>
