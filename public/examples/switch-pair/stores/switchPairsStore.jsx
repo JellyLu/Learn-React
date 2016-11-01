@@ -7,6 +7,7 @@ var SwitchPairsStore = Reflux.createStore({
     init() {
         this.state = this.initState();
         this.listenTo(SwitchPairsActions.clickedCoder, 'onClickedCoder');
+        this.listenTo(SwitchPairsActions.clickedAddCoder, 'onClickedAddCoder');
     },
     initState: function() {
         return {coders: data.coders};
@@ -16,14 +17,22 @@ var SwitchPairsStore = Reflux.createStore({
     },
     onClickedCoder: function(checkbox, coders) {
         let name = checkbox.name;
-        const newCoders = coders.map(function(coder) {
+        this.state.coders = coders.map(function(coder) {
             if (coder.name === name) {
                 coder.isSelected = !checkbox.checked;
             }
             return coder;
         });
-      this.state.coders = newCoders;
-      this.trigger(this.state.coders);
+        this.trigger(this.state.coders);
+    },
+    onClickedAddCoder: function(name) {
+        var coder = {
+            name: name,
+            isSelected: false,
+            id: Date.now()
+        };
+        this.state.coders = this.state.coders.concat([coder]);
+        this.trigger(this.state);
     }
 });
 

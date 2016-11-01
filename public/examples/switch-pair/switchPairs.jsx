@@ -17,13 +17,7 @@ var SwitchPairs = React.createClass({
         this.transitionTo('pairList');
     },
     handleCoderSubmit: function(name) {
-        var coder = {
-            name: name,
-            isSelected: false,
-            id: Date.now
-        };
-        var newCoders = this.state.coders.concat([coder]);
-        this.setState({coders: newCoders});
+        SwitchPairsActions.clickedAddCoder(name);        
     },
     handleCoderClicked: function(e) {
       e.preventDefault();

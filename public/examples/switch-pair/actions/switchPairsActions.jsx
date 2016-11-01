@@ -2,7 +2,8 @@ const Reflux = require('reflux');
 
 var SwitchPairsActions = Reflux.createActions([
   "switchPair",
-  "clickedCoder"
+  "clickedCoder",
+  "clickedAddCoder"
 ]);
 
 module.exports = SwitchPairsActions;
