@@ -27,7 +27,7 @@ var SwitchPairsStore = Reflux.createStore({
     onClickedAddCoder: function(name) {
         var coder = {
             name: name,
-            isSelected: false,
+            isSelected: true,
             id: Date.now()
         };
         this.state.coders = this.state.coders.concat([coder]);
